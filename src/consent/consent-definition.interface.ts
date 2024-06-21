@@ -22,6 +22,14 @@ export interface AdmobConsentDefinitions {
   showConsentForm(): Promise<AdmobConsentInfo>;
 
   /**
+   * Shows a google privacy options form (rendered from your GDPR message config).
+   *
+   * @group Consent
+   * @since 6.0.1
+   */
+  showPrivacyOptionsForm(): Promise<void>;
+
+  /**
    * Resets the UMP SDK state. Call requestConsentInfo function again to allow user modify their consent
    *
    * @group Consent

@@ -322,6 +322,7 @@ AdMob.addListener(RewardAdPluginEvents.Rewarded, async () => {
 * [`addListener(BannerAdPluginEvents.AdImpression, ...)`](#addlistenerbanneradplugineventsadimpression-)
 * [`requestConsentInfo(...)`](#requestconsentinfo)
 * [`showConsentForm()`](#showconsentform)
+* [`showPrivacyOptionsForm()`](#showprivacyoptionsform)
 * [`resetConsentInfo()`](#resetconsentinfo)
 * [`prepareInterstitial(...)`](#prepareinterstitial)
 * [`showInterstitial()`](#showinterstitial)
@@ -598,6 +599,17 @@ showConsentForm() => Promise<AdmobConsentInfo>
 Shows a google user consent form (rendered from your GDPR message config).
 
 **Returns:** <code>Promise&lt;<a href="#admobconsentinfo">AdmobConsentInfo</a>&gt;</code>
+
+--------------------
+
+
+### showPrivacyOptionsForm()
+
+```typescript
+showPrivacyOptionsForm() => Promise<void>
+```
+
+Shows a google privacy options form (rendered from your GDPR message config).
 
 --------------------
 
@@ -926,6 +938,7 @@ https://developers.google.com/android/reference/com/google/android/gms/ads/AdErr
 | ---------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------- |
 | **`status`**                 | <code><a href="#admobconsentstatus">AdmobConsentStatus</a></code> | The consent status of the user.                       |
 | **`isConsentFormAvailable`** | <code>boolean</code>                                              | If `true` a consent form is available and vice versa. |
+| **`canRequestAds`**          | <code>boolean</code>                                              | If `true` an ad can be shown.                         |
 
 
 #### AdmobConsentRequestOptions
@@ -984,9 +997,7 @@ https://developers.google.com/admob/android/rewarded-video-adapters?hl=en
 
 From T, pick a set of properties whose keys are in the union K
 
-<code>{
- [P in K]: T[P];
- }</code>
+<code>{ [P in K]: T[P]; }</code>
 
 
 ### Enums

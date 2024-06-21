@@ -34,6 +34,7 @@ export class AdMobWeb extends WebPlugin implements AdMobPlugin {
     return {
       status: AdmobConsentStatus.REQUIRED,
       isConsentFormAvailable: true,
+      canRequestAds: true,
     };
   }
 
@@ -41,7 +42,12 @@ export class AdMobWeb extends WebPlugin implements AdMobPlugin {
     console.log('showConsentForm');
     return {
       status: AdmobConsentStatus.REQUIRED,
+      canRequestAds: true,
     };
+  }
+
+  async showPrivacyOptionsForm(): Promise<void> {
+    console.log('showPrivacyOptionsForm');
   }
 
   async resetConsentInfo(): Promise<void> {

@@ -177,8 +177,8 @@ class AdInterstitialExecutorTest {
         @Mock
         PluginCall pluginCallMock;
 
-        @AfterEach
-        void afterEach() {
+        @BeforeEach
+        void beforeEach() {
             AdInterstitialExecutor.interstitialAd = null;
         }
 

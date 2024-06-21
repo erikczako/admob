@@ -12,4 +12,10 @@ export interface AdmobConsentInfo {
    * @since 5.0.0
    */
   isConsentFormAvailable?: boolean;
+
+  /**
+   * If `true` an ad can be shown.
+   * @since 6.0.1
+   */
+  canRequestAds: boolean;
 }

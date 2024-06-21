@@ -100,7 +100,7 @@ public class AdMobTest {
 
             sut.initialize(pluginCallMock);
 
-            mobileAdsMockedStatic.verify(times(1), () -> MobileAds.setRequestConfiguration(argumentCaptor.capture()));
+            mobileAdsMockedStatic.verify(() -> MobileAds.setRequestConfiguration(argumentCaptor.capture()), times(1));
             assertEquals(0, argumentCaptor.getValue().getTestDeviceIds().size());
         }
 
@@ -116,7 +116,7 @@ public class AdMobTest {
 
             sut.initialize(pluginCallMock);
 
-            mobileAdsMockedStatic.verify(times(1), () -> MobileAds.setRequestConfiguration(argumentCaptor.capture()));
+            mobileAdsMockedStatic.verify(() -> MobileAds.setRequestConfiguration(argumentCaptor.capture()), times(1));
             try {
                 assertEquals(testingDevices.toList(), argumentCaptor.getValue().getTestDeviceIds());
             } catch (JSONException e) {

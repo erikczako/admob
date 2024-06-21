@@ -98,6 +98,11 @@ public class AdMob extends Plugin {
     }
 
     @PluginMethod
+    public void showPrivacyOptionsForm(final PluginCall call) {
+        adConsentExecutor.showPrivacyOptionsForm(call, this::notifyListeners);
+    }
+
+    @PluginMethod
     public void resetConsentInfo(final PluginCall call) {
         adConsentExecutor.resetConsentInfo(call, this::notifyListeners);
     }
