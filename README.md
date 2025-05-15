@@ -646,6 +646,19 @@ Request user consent information
 --------------------
 
 
+### showPrivacyOptionsForm()
+
+```typescript
+showPrivacyOptionsForm() => Promise<void>
+```
+
+Shows a google privacy options form (rendered from your GDPR message config).
+
+**Since:** 6.2.0
+
+--------------------
+
+
 ### showConsentForm()
 
 ```typescript
@@ -1125,10 +1138,12 @@ https://developers.google.com/android/reference/com/google/android/gms/ads/AdErr
 
 #### AdmobConsentInfo
 
-| Prop                         | Type                                                              | Description                                           | Since |
-| ---------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------- | ----- |
-| **`status`**                 | <code><a href="#admobconsentstatus">AdmobConsentStatus</a></code> | The consent status of the user.                       | 5.0.0 |
-| **`isConsentFormAvailable`** | <code>boolean</code>                                              | If `true` a consent form is available and vice versa. | 5.0.0 |
+| Prop                                  | Type                                                                                        | Description                                           | Since |
+| ------------------------------------- | ------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ----- |
+| **`status`**                          | <code><a href="#admobconsentstatus">AdmobConsentStatus</a></code>                           | The consent status of the user.                       | 5.0.0 |
+| **`isConsentFormAvailable`**          | <code>boolean</code>                                                                        | If `true` a consent form is available and vice versa. | 5.0.0 |
+| **`canRequestAds`**                   | <code>boolean</code>                                                                        | If `true` an ad can be shown.                         | 6.2.0 |
+| **`privacyOptionsRequirementStatus`** | <code><a href="#privacyoptionsrequirementstatus">PrivacyOptionsRequirementStatus</a></code> | Privacy options requirement status of the user.       | 6.2.0 |
 
 
 #### AdmobConsentRequestOptions
@@ -1159,13 +1174,13 @@ https://developers.google.com/android/reference/com/google/android/gms/ads/AdErr
 
 #### RewardAdOptions
 
-| Prop            | Type                                                                                                                                                                                                                                               | Description                                                                                                                                                                                     | Default            | Since |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
-| **`ssv`**       | <code><a href="#atleastone">AtLeastOne</a>&lt;{ /** * An optional UserId to pass to your SSV callback function. */ userId: string; /** * An optional custom set of data to pass to your SSV callback function. */ customData: string; }&gt;</code> | If you have enabled SSV in your AdMob Application. You can provide customData or a userId be passed to your callback to do further processing on. *Important* You *HAVE* to define one of them. |                    |       |
-| **`adId`**      | <code>string</code>                                                                                                                                                                                                                                | The ad unit ID that you want to request                                                                                                                                                         |                    | 1.1.2 |
-| **`isTesting`** | <code>boolean</code>                                                                                                                                                                                                                               | You can use test mode of ad.                                                                                                                                                                    | <code>false</code> | 1.1.2 |
-| **`margin`**    | <code>number</code>                                                                                                                                                                                                                                | Margin Banner. Default is 0px; If position is BOTTOM_CENTER, margin is be margin-bottom. If position is TOP_CENTER, margin is be margin-top.                                                    | <code>0</code>     | 1.1.2 |
-| **`npa`**       | <code>boolean</code>                                                                                                                                                                                                                               | The default behavior of the Google Mobile Ads SDK is to serve personalized ads. Set this to true to request Non-Personalized Ads                                                                | <code>false</code> | 1.2.0 |
+| Prop            | Type                                                                                                                                                                                                                                                        | Description                                                                                                                                                                                     | Default            | Since |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
+| **`ssv`**       | <code><a href="#atleastone">AtLeastOne</a>&lt;{ /** * An optional UserId to pass to your SSV callback function. */ userId: string; /** * An optional custom set of data to pass to your SSV callback function. */ customData: string; }&gt;</code> | If you have enabled SSV in your AdMob Application. You can provide customData or a userId be passed to your callback to do further processing on. *Important* You *HAVE* to define one of them. |                    |       |
+| **`adId`**      | <code>string</code>                                                                                                                                                                                                                                         | The ad unit ID that you want to request                                                                                                                                                         |                    | 1.1.2 |
+| **`isTesting`** | <code>boolean</code>                                                                                                                                                                                                                                        | You can use test mode of ad.                                                                                                                                                                    | <code>false</code> | 1.1.2 |
+| **`margin`**    | <code>number</code>                                                                                                                                                                                                                                         | Margin Banner. Default is 0px; If position is BOTTOM_CENTER, margin is be margin-bottom. If position is TOP_CENTER, margin is be margin-top.                                                    | <code>0</code>     | 1.1.2 |
+| **`npa`**       | <code>boolean</code>                                                                                                                                                                                                                                        | The default behavior of the Google Mobile Ads SDK is to serve personalized ads. Set this to true to request Non-Personalized Ads                                                                | <code>false</code> | 1.2.0 |
 
 
 #### AdMobRewardItem
@@ -1181,13 +1196,13 @@ https://developers.google.com/admob/android/rewarded-video-adapters?hl=en
 
 #### RewardInterstitialAdOptions
 
-| Prop            | Type                                                                                                                                                                                                                                               | Description                                                                                                                                                                                     | Default            | Since |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
-| **`ssv`**       | <code><a href="#atleastone">AtLeastOne</a>&lt;{ /** * An optional UserId to pass to your SSV callback function. */ userId: string; /** * An optional custom set of data to pass to your SSV callback function. */ customData: string; }&gt;</code> | If you have enabled SSV in your AdMob Application. You can provide customData or a userId be passed to your callback to do further processing on. *Important* You *HAVE* to define one of them. |                    |       |
-| **`adId`**      | <code>string</code>                                                                                                                                                                                                                                | The ad unit ID that you want to request                                                                                                                                                         |                    | 1.1.2 |
-| **`isTesting`** | <code>boolean</code>                                                                                                                                                                                                                               | You can use test mode of ad.                                                                                                                                                                    | <code>false</code> | 1.1.2 |
-| **`margin`**    | <code>number</code>                                                                                                                                                                                                                                | Margin Banner. Default is 0px; If position is BOTTOM_CENTER, margin is be margin-bottom. If position is TOP_CENTER, margin is be margin-top.                                                    | <code>0</code>     | 1.1.2 |
-| **`npa`**       | <code>boolean</code>                                                                                                                                                                                                                               | The default behavior of the Google Mobile Ads SDK is to serve personalized ads. Set this to true to request Non-Personalized Ads                                                                | <code>false</code> | 1.2.0 |
+| Prop            | Type                                                                                                                                                                                                                                                        | Description                                                                                                                                                                                     | Default            | Since |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
+| **`ssv`**       | <code><a href="#atleastone">AtLeastOne</a>&lt;{ /** * An optional UserId to pass to your SSV callback function. */ userId: string; /** * An optional custom set of data to pass to your SSV callback function. */ customData: string; }&gt;</code> | If you have enabled SSV in your AdMob Application. You can provide customData or a userId be passed to your callback to do further processing on. *Important* You *HAVE* to define one of them. |                    |       |
+| **`adId`**      | <code>string</code>                                                                                                                                                                                                                                         | The ad unit ID that you want to request                                                                                                                                                         |                    | 1.1.2 |
+| **`isTesting`** | <code>boolean</code>                                                                                                                                                                                                                                        | You can use test mode of ad.                                                                                                                                                                    | <code>false</code> | 1.1.2 |
+| **`margin`**    | <code>number</code>                                                                                                                                                                                                                                         | Margin Banner. Default is 0px; If position is BOTTOM_CENTER, margin is be margin-bottom. If position is TOP_CENTER, margin is be margin-top.                                                    | <code>0</code>     | 1.1.2 |
+| **`npa`**       | <code>boolean</code>                                                                                                                                                                                                                                        | The default behavior of the Google Mobile Ads SDK is to serve personalized ads. Set this to true to request Non-Personalized Ads                                                                | <code>false</code> | 1.2.0 |
 
 
 #### AdMobRewardInterstitialItem
@@ -1213,9 +1228,7 @@ https://developers.google.com/admob/android/rewarded-video-adapters?hl=en
 
 From T, pick a set of properties whose keys are in the union K
 
-<code>{
- [P in K]: T[P];
- }</code>
+<code>{ [P in K]: T[P]; }</code>
 
 
 ### Enums
